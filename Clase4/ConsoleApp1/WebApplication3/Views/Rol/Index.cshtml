@@ -1,0 +1,31 @@
+﻿@using BEAN;
+@model List<RolBEAN>  
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Roles</h2>
+@Html.ActionLink("Nuevo Rol","Create","Rol")
+    <table class="table">
+        <thead class="">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.idRol
+                    </td>
+                    <td>@item.nombreRol</td>
+                    <td>@Html.ActionLink("Editar Rol", "Edit", new {id = item.idRol })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
